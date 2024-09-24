@@ -20,4 +20,12 @@ indexRouter.get('/', (req, res) => {
   res.render('index', {messages: messages})
 })
 
+indexRouter.get('/new', (req, res) => {
+  res.render('form')
+})
+
+indexRouter.post('/new', (req, res) => {
+  res.send('message posted')
+})
+
 module.exports = indexRouter;

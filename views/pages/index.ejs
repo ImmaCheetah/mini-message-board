@@ -5,11 +5,13 @@
   </head>
   <body>
 
-    <ul>
-      <% messages.forEach((message) => { %>
-        <li><%= message.text %></li>
-      <% }); %>
-    </ul>
+
+    <% messages.forEach((message) => { %>
+      <h4> User: <%= message.user %></h4>
+      <p> Message: <%= message.text %></p>
+      <p> Time: <%= message.added %></p>
+    <% }); %>
+
 
   </body>
 </html>

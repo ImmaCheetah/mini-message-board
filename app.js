@@ -9,9 +9,8 @@ app.set("views", path.join(__dirname, "views/pages"));
 app.set("view engine", "ejs");
 
 const indexRouter = require('./routes/indexRouter')
-const newMsgRouter = require('./routes/newMsgRouter')
 
 app.use('/', indexRouter)
-app.use('/new', newMsgRouter)
+app.use('/new', indexRouter)
 
 app.listen(process.env.PORT, () => console.log('App running on port', PORT))
