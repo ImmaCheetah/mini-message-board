@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <title>Homepage</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+
+    <ul>
+      <% messages.forEach((message) => { %>
+        <li><%= message.text %></li>
+      <% }); %>
+    </ul>
+
+  </body>
+</html>
