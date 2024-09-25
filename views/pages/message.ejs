@@ -1,1 +1,17 @@
 <h1>hello</h1>
+<p><%= messages[0].user %></p>
+<p><%= param.id %></p>
+<% messages.forEach((message) => { %>
+  <% console.log(message.id, param.id) %> 
+  <% if (message.id == param.id) { %>
+    <h4> User: <%= message.user %></h4>
+    <p> Message: <%= message.text %></p>
+    <p> Time: <%= message.added %></p>
+  <% } else {%>
+    
+<% }}); %>
+
+<!-- 
+get the id
+loop through the messages 
+show the match -->

@@ -26,7 +26,8 @@ indexRouter.get('/new', (req, res) => {
 })
 
 indexRouter.get('/message/:id', (req, res) => {
-  res.render('message')
+  console.log("Params:", req.params);
+  res.render('message', {messages: messages, param: req.params})
 })
 
 indexRouter.post('/new', (req, res) => {
