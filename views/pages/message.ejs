@@ -1,11 +1,17 @@
-<%- include('../partials/header') %>
-<% messages.forEach((message) => { %>
-  <% console.log(message.id, param.id) %> 
-  <% if (message.id == param.id) { %>
-    <h4> User: <%= message.user %></h4>
-    <p> Message: <%= message.text %></p>
-    <p> Time: <%= message.added %></p>
-  <% } else {%>
-    <% return %>
-<% }}); %>
-<%- include('../partials/footer') %>
+
+  <%- include('../partials/head') %>
+  <body>
+    <div class="main-container">
+      <%- include('../partials/header') %>
+      <% messages.forEach((message) => { %>
+        <% if (message.id == param.id) { %>
+          <h4> User: <%= message.user %></h4>
+          <p> Message: <%= message.text %></p>
+          <p> Time: <%= message.added %></p>
+        <% } else {%>
+          <% return %>
+      <% }}); %>
+    </div>
+    <%- include('../partials/footer') %>
+  </body>
+

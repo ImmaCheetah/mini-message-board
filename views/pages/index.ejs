@@ -1,16 +1,20 @@
 <html>
-  <head>
-    <title>Homepage</title>
-    <link rel="stylesheet" href="./styles.css">
-  </head>
+  <%- include('../partials/head') %>
   <body>
-    <%- include('../partials/header') %>
-    <% messages.forEach((message) => { %>
-      <h4> User: <%= message.user %></h4>
-      <p> Message: <%= message.text %></p>
-      <p> Time: <%= message.added %></p>
-      <a href="/message/<%= message.id %>">Open</a>
-    <% }); %>
-    <%- include('../partials/footer') %>
+    <div class="main-container">
+      <%- include('../partials/header') %>
+      <div class="msg-container">
+        <h1>Messages</h1>
+        <% messages.forEach((message) => { %>
+          <div class="message-div">
+            <h4 class="username"><%= message.user %></h4>
+            <p class="message-txt"><%= message.text %></p>
+            <p class="message-date"><%= message.added %></p>
+            <a href="/message/<%= message.id %>"><button class="open-msg-btn">Open</button></a>
+          </div>
+        <% }); %>
+      </div>
+      <%- include('../partials/footer') %>
+    </div>
   </body>
 </html>
