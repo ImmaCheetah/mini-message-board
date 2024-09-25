@@ -1,19 +1,22 @@
 const { Router } = require("express");
-
+const { v4: uuidv4 } = require('uuid');
 const indexRouter = Router();
+
+const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' };
+const today  = new Date();
 
 const messages = [
   {
     text: "Hi there!",
     user: "Amando",
-    added: new Date(),
-    id: 1
+    added: today.toLocaleString("en-US", options),
+    id: uuidv4()
   },
   {
     text: "Hello World!",
     user: "Charles",
-    added: new Date(),
-    id: 2
+    added: today.toLocaleString("en-US", options),
+    id: uuidv4()
   }
 ];
 
@@ -31,7 +34,7 @@ indexRouter.get('/message/:id', (req, res) => {
 })
 
 indexRouter.post('/new', (req, res) => {
-  messages.push({ text: req.body.message, user: req.body.name, added: new Date() });
+  messages.push({ text: req.body.message, user: req.body.name, added: today.toLocaleString("en-US", options), id: uuidv4() });
 
   res.redirect('/')
 })
