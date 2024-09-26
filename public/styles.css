@@ -194,7 +194,7 @@ nav {
   color: rgb(97, 97, 97);
 }
 
-.open-msg-btn {
+.open-msg-btn, .back-btn {
   appearance: none;
   color: white;
   background-color: rgb(39, 39, 39);

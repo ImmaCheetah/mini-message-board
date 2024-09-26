@@ -6,9 +6,10 @@
     <% messages.forEach((message) => { %>
     <% if (message.id == param.id) { %>
     <div class="message-div">
-      <h4> User: <%= message.user %></h4>
-      <p> Message: <%= message.text %></p>
-      <p> Time: <%= message.added %></p>
+      <h4 class="username"><%= message.user %></h4>
+      <span class="message-date"><%= message.added %></span>
+      <p class="message-txt"><%= message.text %></p>
+      <a href="/"><button class="back-btn">Back</button></a>
     </div>
     <% } else {%>
     <% return %>
