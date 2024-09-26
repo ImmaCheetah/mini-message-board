@@ -1,10 +1,17 @@
-<%- include('../partials/head') %>
-<%- include('../partials/header') %>
-<h1>Add a message</h1>
-<form method="POST" action="/new">
-  <label for="name">Name</label>
-  <input name="name" type="text" required>
-  <label for="message">Message</label>
-  <input name="message" type="text" required>
-  <button type="submit">Submit</button>
-</form>
+<html>
+  <%- include('../partials/head') %>
+  <body>
+    <div class="main-container">
+      <%- include('../partials/header') %>
+      <form method="POST" action="/new">
+        <h1>Add a message</h1>
+        <label for="name">Name</label>
+        <input name="name" type="text" maxlength="25" required>
+        <label for="message">Message</label>
+        <textarea name="message" id="message" required></textarea>
+        <button class="submit-btn" type="submit">Submit</button>
+      </form>
+      <%- include('../partials/footer') %>
+    </div>
+  </body>
+</html>

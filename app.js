@@ -15,6 +15,6 @@ app.use(express.static(assetsPath));
 app.use(express.urlencoded({ extended: true }));
 
 app.use('/', indexRouter)
-app.use('/new', indexRouter)
+// app.use('/new', indexRouter)
 
 app.listen(process.env.PORT, () => console.log('App running on port', PORT))

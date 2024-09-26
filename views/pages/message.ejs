@@ -1,16 +1,20 @@
+<html>
 <%- include('../partials/head') %>
 <body>
   <div class="main-container">
     <%- include('../partials/header') %>
     <% messages.forEach((message) => { %>
-      <% if (message.id == param.id) { %>
-        <h4> User: <%= message.user %></h4>
-        <p> Message: <%= message.text %></p>
-        <p> Time: <%= message.added %></p>
-      <% } else {%>
-        <% return %>
+    <% if (message.id == param.id) { %>
+    <div class="message-div">
+      <h4> User: <%= message.user %></h4>
+      <p> Message: <%= message.text %></p>
+      <p> Time: <%= message.added %></p>
+    </div>
+    <% } else {%>
+    <% return %>
     <% }}); %>
+    <%- include('../partials/footer') %>
   </div>
-  <%- include('../partials/footer') %>
 </body>
 
+</html>

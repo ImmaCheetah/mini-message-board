@@ -3,13 +3,13 @@
   <body>
     <div class="main-container">
       <%- include('../partials/header') %>
+      <h1>Messages</h1>
       <div class="msg-container">
-        <h1>Messages</h1>
         <% messages.forEach((message) => { %>
           <div class="message-div">
             <h4 class="username"><%= message.user %></h4>
+            <span class="message-date"><%= message.added %></span>
             <p class="message-txt"><%= message.text %></p>
-            <p class="message-date"><%= message.added %></p>
             <a href="/message/<%= message.id %>"><button class="open-msg-btn">Open</button></a>
           </div>
         <% }); %>
