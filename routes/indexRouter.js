@@ -1,40 +1,13 @@
 const { Router } = require("express");
-const { v4: uuidv4 } = require('uuid');
 const indexRouter = Router();
+const msgController = require('../controllers/messageController')
 
-const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' };
+indexRouter.get('/', msgController.getIndex)
 
-const messages = [
-  {
-    text: "Hi there!",
-    user: "Amando",
-    added: new Date().toLocaleString("en-US", options),
-    id: uuidv4()
-  },
-  {
-    text: "Hello World!",
-    user: "Charles",
-    added: new Date().toLocaleString("en-US", options),
-    id: uuidv4()
-  }
-];
+indexRouter.get('/new', msgController.getForm)
 
-indexRouter.get('/', (req, res) => {
-  res.render('index', {messages: messages, title: 'Message Board'})
-})
+indexRouter.get('/message/:id', msgController.getMessage)
 
-indexRouter.get('/new', (req, res) => {
-  res.render('form', {title: 'New Message'})
-})
-
-indexRouter.get('/message/:id', (req, res) => {
-  res.render('message', {messages: messages, param: req.params, title: 'Message'})
-})
-
-indexRouter.post('/new', (req, res) => {
-  messages.push({ text: req.body.message, user: req.body.name, added: new Date().toLocaleString("en-US", options), id: uuidv4() });
-
-  res.redirect('/')
-})
+indexRouter.post('/new', msgController.createMessage)
 
 module.exports = indexRouter;

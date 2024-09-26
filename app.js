@@ -16,5 +16,9 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use('/', indexRouter)
 // app.use('/new', indexRouter)
+app.use((err, req, res, next) => {
+    console.error(err);
+    res.status(500).send(err);
+});
 
 app.listen(process.env.PORT, () => console.log('App running on port', PORT))
