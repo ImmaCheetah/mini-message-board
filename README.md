@@ -5,7 +5,7 @@
 
 ## Preview
 
-![Shop Page of App]((image.png))
+[app preview]((image.png))
 
 ## Tools/Languages
 
