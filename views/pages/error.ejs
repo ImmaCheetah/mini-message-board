@@ -1,0 +1,13 @@
+<html>
+  <%- include('../partials/head') %>
+  <body>
+    <div class="main-container">
+      <%- include('../partials/header') %>
+      <div>
+        <h1 class="error">Error: <%= error.statusCode %> <%= error.name %></h1>
+        <h3><%= error.message %></h3>
+      </div>
+      <%- include('../partials/footer') %>
+    </div>
+  </body>
+</html>

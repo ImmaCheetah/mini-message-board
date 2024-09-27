@@ -228,3 +228,7 @@ footer {
 button {
   cursor: pointer;
 }
+
+.error {
+  padding-bottom: 1rem;
+}

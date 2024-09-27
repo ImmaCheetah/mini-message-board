@@ -14,10 +14,15 @@ const messages = [
       added: new Date().toLocaleString("en-US", options),
       id: uuidv4()
     }
-  ];
+];
 
 function getIndex(req, res) {
-    res.render('index', {messages: messages, title: 'Message Board'})
+    try {
+        res.render('index', {messages: messages, title: 'Message Board'})
+    } catch (error) {
+        console.error("Error retrieving user:", error);
+        res.status(500).send("Internal Server Error");
+    }
 }
 
 function getForm(req, res) {
