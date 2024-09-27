@@ -5,12 +5,12 @@
     <%- include('../partials/header') %>
     <% messages.forEach((message) => { %>
     <% if (message.id == param.id) { %>
-    <div class="message-div">
-      <h4 class="username"><%= message.user %></h4>
+    <article class="message-div">
+      <h1 class="username"><%= message.user %></h1>
       <span class="message-date"><%= message.added %></span>
       <p class="message-txt"><%= message.text %></p>
-      <a href="/"><button class="back-btn">Back</button></a>
-    </div>
+      <a class="back-btn" href="/">Back</a>
+    </article>
     <% } else {%>
     <% return %>
     <% }}); %>

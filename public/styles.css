@@ -145,9 +145,11 @@ nav {
 
 .add-msg-btn {
   appearance: none;
+  text-decoration: none;
+  color: black;
   border: none;
   background-color: rgb(233, 237, 239);
-  padding: 1rem;
+  padding: 0.8rem;
   font-size: 1.3rem;
 }
 
@@ -177,6 +179,7 @@ nav {
 
 .username {
   max-width: 15rem;
+  font-size: 1.2rem;
 }
 
 .message-date {
@@ -189,11 +192,14 @@ nav {
 
 .open-msg-btn, .back-btn {
   appearance: none;
+  text-decoration: none;
   color: white;
   background-color: rgb(39, 39, 39);
   border: none;
   padding: 0.5rem;
   display: block;
+  width: 4rem;
+  text-align: center;
   margin-left: auto;
 }
 
