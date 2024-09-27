@@ -5,7 +5,7 @@
 
 ## Preview
 
-[app preview]((image.png))
+![app preview](image.png)
 
 ## Tools/Languages
 
