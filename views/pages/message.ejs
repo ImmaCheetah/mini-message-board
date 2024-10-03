@@ -6,9 +6,9 @@
     <% messages.forEach((message) => { %>
     <% if (message.id == param.id) { %>
     <article class="message-div">
-      <h1 class="username"><%= message.user %></h1>
+      <h1 class="username"><%= message.username %></h1>
       <span class="message-date"><%= message.added %></span>
-      <p class="message-txt"><%= message.text %></p>
+      <p class="message-txt"><%= message.message %></p>
       <a class="back-btn" href="/">Back</a>
     </article>
     <% } else {%>
