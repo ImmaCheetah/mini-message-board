@@ -20,7 +20,6 @@ const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numer
 async function getIndex(req, res) {
     try {
         const messages = await db.getAllMessages();
-        console.log(messages)
         res.render('index', {messages: messages, title: 'Message Board'})
     } catch (error) {
         console.error("Error retrieving user:", error);
@@ -36,8 +35,18 @@ function getMessage(req, res) {
     res.render('message', {messages: messages, param: req.params, title: 'Message'})
 }
 
-function createMessage(req, res) {
-    messages.push({ text: req.body.message, user: req.body.name, added: new Date().toLocaleString("en-US", options), id: uuidv4() });
+async function createMessage(req, res) {
+    // messages.push({ text: req.body.message, user: req.body.name, added: new Date().toLocaleString("en-US", options), id: uuidv4() });
+    const {name, message} = req.body;
+    // console.log(username, text)
+    await db.insertMessage(name, message)
+    console.log(req.body)
+
+    // try {
+    //     const message = 
+    // } catch (error) {
+        
+    // }
 
     res.redirect('/')
 }
