@@ -1,7 +1,8 @@
 #! /usr/bin/env node
 const { Client } = require("pg");
+const { argv } = require('node:process');
 require("dotenv").config();
-const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' };
+const formattedDate = require("../helper/dateFormatter")
 
 
 const SQL = `
@@ -14,14 +15,19 @@ CREATE TABLE IF NOT EXISTS messages (
 
 INSERT INTO messages (username, message, added) 
 VALUES
-  ('Sava', 'Into the void', '${new Date().toLocaleString("en-US", options)}'),
-  ('Gorlami', 'A river there chief', '${new Date().toLocaleString("en-US", options)}');
+  ('Sava', 'Into the void', '${formattedDate()}'),
+  ('Gorlami', 'A river there chief', '${formattedDate()}');
 `;
+
+
 
 async function main() {
   console.log("seeding...");
+  // const client = new Client({
+  //   connectionString: `postgresql://${process.env.USER}:${process.env.PASSWORD}@${process.env.HOST}:${process.env.POOL_PORT}/${process.env.DB}`,
+  // });
   const client = new Client({
-    connectionString: `postgresql://${process.env.USER}:${process.env.PASSWORD}@${process.env.HOST}:${process.env.POOL_PORT}/${process.env.DB}`,
+    connectionString: `${process.argv[2]}?sslmode=require`,
   });
   await client.connect();
   await client.query(SQL);
