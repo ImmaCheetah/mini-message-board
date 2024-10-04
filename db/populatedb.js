@@ -24,7 +24,6 @@ async function main() {
   const client = new Client({
     connectionString: process.env.CONNECTION_STRING,
   });
-  console.log(client.connectionString)
   // const client = new Client({
   //   connectionString: `${argv[2]}?sslmode=require`,
   // });

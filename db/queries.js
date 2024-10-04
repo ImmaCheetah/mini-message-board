@@ -2,8 +2,12 @@ const pool = require("./pool");
 const formattedDate = require("../helper/dateFormatter")
 
 async function getAllMessages() {
-    const { rows } = await pool.query("SELECT * FROM messages");
-    return rows;
+    try {
+        const { rows } = await pool.query("SELECT * FROM messages");
+        return rows;
+    } catch (error) {
+        console.error(error)
+    }
 }
 
 async function insertMessage(username, text) {
