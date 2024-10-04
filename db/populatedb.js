@@ -2,7 +2,8 @@
 const { Client } = require("pg");
 const { argv } = require('node:process');
 require("dotenv").config();
-const formattedDate = require("../helper/dateFormatter")
+const formattedDate = require("../helper/dateFormatter");
+
 
 const SQL = `
 CREATE TABLE IF NOT EXISTS messages (
@@ -21,8 +22,9 @@ VALUES
 async function main() {
   console.log("seeding...");
   const client = new Client({
-    connectionString: `postgresql://${process.env.USER}:${process.env.PASSWORD}@${process.env.HOST}:${process.env.POOL_PORT}/${process.env.DB}`,
+    connectionString: process.env.CONNECTION_STRING,
   });
+  console.log(client.connectionString)
   // const client = new Client({
   //   connectionString: `${argv[2]}?sslmode=require`,
   // });
