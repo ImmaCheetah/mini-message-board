@@ -4,7 +4,6 @@ const { argv } = require('node:process');
 require("dotenv").config();
 const formattedDate = require("../helper/dateFormatter")
 
-
 const SQL = `
 CREATE TABLE IF NOT EXISTS messages (
   id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
@@ -19,16 +18,14 @@ VALUES
   ('Gorlami', 'A river there chief', '${formattedDate()}');
 `;
 
-
-
 async function main() {
   console.log("seeding...");
-  // const client = new Client({
-  //   connectionString: `postgresql://${process.env.USER}:${process.env.PASSWORD}@${process.env.HOST}:${process.env.POOL_PORT}/${process.env.DB}`,
-  // });
   const client = new Client({
-    connectionString: `${process.argv[2]}?sslmode=require`,
+    connectionString: `postgresql://${process.env.USER}:${process.env.PASSWORD}@${process.env.HOST}:${process.env.POOL_PORT}/${process.env.DB}`,
   });
+  // const client = new Client({
+  //   connectionString: `${argv[2]}?sslmode=require`,
+  // });
   await client.connect();
   await client.query(SQL);
   await client.end();
