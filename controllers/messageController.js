@@ -6,7 +6,7 @@ async function getIndex(req, res) {
         res.render('index', {messages: messages, title: 'Message Board'})
     } catch (error) {
         console.error(error);
-        res.status(500).send("Internal Server Error");
+        res.status(500).send("Internal Server Error Check for Koyeb");
     }
 }
 
