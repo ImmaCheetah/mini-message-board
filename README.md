@@ -32,3 +32,11 @@ $ npm run start
 - Understand the use of middlewares
 - Understand how to route to different pages using GET/POST
 - Create a custom error for handling errors
+
+After Database Update
+
+- How to set up db using postgreSQL
+- Connect to database
+- Run queries
+- Populate the database with a script
+- Use a PaaS to host website and db
